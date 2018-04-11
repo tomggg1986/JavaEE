@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://library.ptoku" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://library.ptoku" xmlns:intf="http://library.ptoku" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://library.ptoku" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getXml">
+    <complexType/>
+   </element>
+   <element name="getXmlResponse">
+    <complexType>
+     <sequence>
+      <element name="getXmlReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="putXml">
+    <complexType>
+     <sequence>
+      <element name="content" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="putXmlResponse">
+    <complexType/>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="putXmlResponse">
+
+      <wsdl:part element="impl:putXmlResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getXmlResponse">
+
+      <wsdl:part element="impl:getXmlResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getXmlRequest">
+
+      <wsdl:part element="impl:getXml" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="putXmlRequest">
+
+      <wsdl:part element="impl:putXml" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Rest">
+
+      <wsdl:operation name="getXml">
+
+         <wsdl:input message="impl:getXmlRequest" name="getXmlRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getXmlResponse" name="getXmlResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="putXml">
+
+         <wsdl:input message="impl:putXmlRequest" name="putXmlRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:putXmlResponse" name="putXmlResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="RestSoapBinding" type="impl:Rest">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getXml">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getXmlRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getXmlResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="putXml">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="putXmlRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="putXmlResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="RestService">
+
+      <wsdl:port binding="impl:RestSoapBinding" name="Rest">
+
+         <wsdlsoap:address location="http://localhost:8080/ptokuPage/services/Rest"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
